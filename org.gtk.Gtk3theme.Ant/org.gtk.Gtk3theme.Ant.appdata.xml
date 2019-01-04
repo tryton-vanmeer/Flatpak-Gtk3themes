@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="runtime">
+    <id>org.gtk.Gtk3theme.Ant</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <name>Ant GTK+ theme</name>
+    <summary>Ant GTK+ theme</summary>
+    <description>
+        <p>A flat and light theme with a modern look</p>
+    </description>
+    <url type="homepage">https://github.com/EliverLara/Ant</url>
+</component>

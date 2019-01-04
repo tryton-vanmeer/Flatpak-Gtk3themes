@@ -1,0 +1,45 @@
+{
+  "id": "org.gtk.Gtk3theme.Ant",
+  "branch": "3.22",
+  "runtime": "org.freedesktop.Platform",
+  "build-extension": true,
+  "sdk": "org.freedesktop.Sdk",
+  "runtime-version": "1.6",
+  "build-extension": true,
+  "appstream-compose": false,
+  "separate-locales": false,
+  "modules": [
+    {
+      "name": "Ant",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -pm 755 /usr/share/runtime/share/themes/Ant/gtk-3.0",
+        "sed 's/url(\"..\\/assets/url(\"assets/g' gtk-3.20/gtk.css > /usr/share/runtime/share/themes/Ant/gtk-3.0/gtk.css",
+        "sed 's/url(\"..\\/assets/url(\"assets/g' gtk-3.20/gtk-dark.css > /usr/share/runtime/share/themes/Ant/gtk-3.0/gtk-dark.css",
+        "cp -r assets /usr/share/runtime/share/themes/Ant/gtk-3.0"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/EliverLara/Ant/archive/v1.2.0.tar.gz",
+          "sha256": "f674516681d51ef1c87fe775655879b811f203448946d5a52beddc38f0bfe780"
+        }
+      ]
+    },
+    {
+      "name": "appdata",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p ${FLATPAK_DEST}/share/appdata",
+        "cp org.gtk.Gtk3theme.Ant.appdata.xml ${FLATPAK_DEST}/share/appdata",
+        "appstream-compose --basename=org.gtk.Gtk3theme.Ant --prefix=${FLATPAK_DEST} --origin=flatpak org.gtk.Gtk3theme.Ant"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "org.gtk.Gtk3theme.Ant.appdata.xml"
+        }
+      ]
+    }
+  ]
+}
